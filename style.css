@@ -2,11 +2,19 @@
     --primary-bg: #082129;
     --secondary-bg: #05171E;
     --highlight-color: #0b6f8e;
+    --dialog-bg: #0D3240;
+    --footer-bg: #082129;
     --border-radius: 20px;
+    --large-radius: 25px;
     --transition-speed: 225ms;
 }
 
 h1 {
+    text-align: center;
+    margin-block-start: 60px;
+}
+
+h6 {
     text-align: center;
 }
 
@@ -14,6 +22,23 @@ body {
     margin: 0;
     font-family: 'Azeret Mono';
     color: white;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header {
@@ -36,7 +61,7 @@ main {
     background-color: var(--secondary-bg);
 }
 
-.imageGallery {
+.image-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -45,17 +70,17 @@ main {
     gap: 10px;
 }
 
-.imageGallery img {
+.image-gallery img {
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: var(--border-radius);
-    transition: all var(--transition-speed) ease-in-out;
+    transition: transform var(--transition-speed) ease-in-out;
     cursor: pointer;
     border: 2px solid var(--highlight-color);
 }
 
-.imageGallery img:hover {
+.image-gallery img:hover {
     transform: scale(1.05);
 }
 
@@ -66,11 +91,13 @@ main {
     flex-direction: column;
     width: 280px;
     height: 450px;
-    background-color: #0D3240;
+    background-color: var(--dialog-bg);
     position: fixed;
-    top: 27%;
-    border-radius: 25px;
+    border-radius: var(--large-radius);
     padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hidden {
@@ -78,52 +105,43 @@ main {
 }
 
 .openDialogSec01 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 95%;
 }
 
 .closeIcon {
     filter: invert(1);
-    width: 25px;
-    height: 25px;
 }
 
-.arrowIcons {
+.icon {
     width: 25px;
     height: 25px;
 }
 
 .arrowsSection {
-    display: flex;
-    justify-content: space-around;
     padding: 10px;
     width: 80%;
 }
 
-.openDialogImage {
+/* .openDialogImage {
     width: 280px;
     height: 200px;
     object-fit: cover;
-}
+} */
 
-.arrowRightSection{
+.arrowRightSection {
     display: flex;
     justify-content: end;
     width: 30%;
 }
 
-.arrowLeftSection{
+.arrowLeftSection {
     display: flex;
     justify-content: start;
     width: 30%;
 }
 
-.arrowsImageSection{
-    display: flex;
+.arrowsImageSection {
     width: 40%;
-    justify-content: center;
 }
 
 .main-fenster {
@@ -136,25 +154,84 @@ main {
 }
 
 .openDialogImage {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateX(0px);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .openDialogImage.visible {
-  opacity: 1;
-  transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .openDialogImage.slide-left {
-  transform: translateX(-50px);
+    transform: translateX(-50px);
+}
+
+.openDialogImage.slide-right {
+    transform: translateX(50px);
 }
 
 .footer-section {
+    background-color: var(--footer-bg);
+    height: 90px;
+    padding: 10px 30px;
+}
+
+.footer-image-section {
     display: flex;
     justify-content: center;
-    background-color: #082129;
-    height: 90px;
-    color: white;
-    padding: 10px 30px;
+}
+
+/* Üblicher sind 320px, 480px, 768px, 1024px usw. (abhängig von Projekt) */
+
+@media only screen and (max-width: 480px) {
+    .header img {
+        width: 200px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .image-gallery {
+        width: 100%;
+    }
+
+    .image-open-section {
+        width: 250px;
+        height: 425px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .openDialogImage {
+        width: 250px;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    h1 {
+        font-size: 25px;
+        margin-block-start: 20px;
+    }
+
+    .image-gallery img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .image-gallery {
+        padding: 20px 0;
+    }
+
+    .header img {
+        width: 180px;
+    }
+
 }

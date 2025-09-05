@@ -96,9 +96,6 @@ let currentIndex = 0;
 function openDialog(i) {
     currentIndex = i; // global merken
 
-    console.log(currentIndex);
-
-
     const content2 = document.getElementById('main-fenster');
     const content = document.getElementById('image-open-section');
 
@@ -110,19 +107,19 @@ function openDialog(i) {
     const currentImage = fotoImages[i];
 
     content.innerHTML = `
-            <div class="openDialogSec01">
+            <div class="openDialogSec01 flex-between">
                 <p>${currentImage}</p>
-                <img id="close-icon" class="closeIcon" src="./img/close-window-32.png">
+                <img id="close-icon" class="closeIcon icon" src="./img/close-window-32.png">
             </div>
 
             <div>
-                <img id="image${currentIndex}" class="openDialogImage" src="./img2/${currentImage}">
+                <img id="image${currentIndex}" class="openDialogImage openDialogImage.slide-left" src="./img2/${currentImage}">
             </div>
 
-            <div class="arrowsSection">
-                <div class="arrowLeftSection"><img id="arrow-left" class="arrowIcons" src="./img/arrowleft.png"></div>
-                <div class="arrowsImageSection"><span>${currentIndex + 1}/${fotoImages.length}</span></div>
-                <div class="arrowRightSection"><img id="arrow-right" class="arrowIcons" src="./img/arrowright.png"></div>
+            <div class="arrowsSection flex-around">
+                <div class="arrowLeftSection"><img id="arrow-left" class="icon" src="./img/arrowleft.png"></div>
+                <div class="arrowsImageSection flex-center"><span>${currentIndex + 1}/${fotoImages.length}</span></div>
+                <div class="arrowRightSection"><img id="arrow-right" class="icon" src="./img/arrowright.png"></div>
             </div>
     `;
 
