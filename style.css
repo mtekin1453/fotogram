@@ -1,0 +1,151 @@
+:root {
+    --primary-bg: #082129;
+    --secondary-bg: #05171E;
+    --highlight-color: #0b6f8e;
+    --border-radius: 20px;
+    --transition-speed: 225ms;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    font-family: 'Azeret Mono';
+    color: white;
+}
+
+.header {
+    display: flex;
+    background-color: var(--primary-bg);
+    height: 100px;
+    padding: 10px 30px;
+}
+
+.header img {
+    width: 230px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    background-color: var(--secondary-bg);
+}
+
+.imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    padding: 50px 0;
+    gap: 10px;
+}
+
+.imageGallery img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease-in-out;
+    cursor: pointer;
+    border: 2px solid var(--highlight-color);
+}
+
+.imageGallery img:hover {
+    transform: scale(1.05);
+}
+
+.image-open-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 280px;
+    height: 450px;
+    background-color: #0D3240;
+    position: fixed;
+    top: 27%;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.openDialogSec01 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.closeIcon {
+    filter: invert(1);
+    width: 25px;
+    height: 25px;
+}
+
+.arrowIcons {
+    width: 25px;
+    height: 25px;
+}
+
+.arrowsSection {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 80%;
+}
+
+.openDialogImage {
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.arrowRightSection{
+    display: flex;
+    justify-content: end;
+    width: 30%;
+}
+
+.arrowLeftSection{
+    display: flex;
+    justify-content: start;
+    width: 30%;
+}
+
+.arrowsImageSection{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+}
+
+.main-fenster {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: contrast(0.5);
+}
+
+.openDialogImage {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.openDialogImage.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.openDialogImage.slide-left {
+  transform: translateX(-50px);
+}
