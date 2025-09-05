@@ -149,3 +149,12 @@ main {
 .openDialogImage.slide-left {
   transform: translateX(-50px);
 }
+
+.footer-section {
+    display: flex;
+    justify-content: center;
+    background-color: #082129;
+    height: 90px;
+    color: white;
+    padding: 10px 30px;
+}
