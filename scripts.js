@@ -113,7 +113,7 @@ function openDialog(i) {
             </div>
 
             <div>
-                <img id="image${currentIndex}" class="openDialogImage openDialogImage.slide-left" src="./img2/${currentImage}">
+                <img id="image${currentIndex}" class="openDialogImage openDialogImage.visible-right" src="./img2/${currentImage}">
             </div>
 
             <div class="arrowsSection flex-around">

@@ -6,7 +6,7 @@
     --footer-bg: #082129;
     --border-radius: 20px;
     --large-radius: 25px;
-    --transition-speed: 225ms;
+    --transition-speed: 1000ms;
 }
 
 h1 {
@@ -147,21 +147,31 @@ main {
     height: 200px;
     object-fit: cover;
     opacity: 0;
-    transform: translateX(0px);
+    transform: translateY(-20px);
     transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.openDialogImage.visible-left {
+  animation: fadeInLeft var(--transition-speed) ease forwards;
+}
+
+.openDialogImage.visible-right {
+  animation: fadeInRight var(--transition-speed) ease forwards;
 }
 
 .openDialogImage.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-.openDialogImage.slide-left {
-    transform: translateX(-50px);
-}
-
-.openDialogImage.slide-right {
-    transform: translateX(50px);
 }
 
 .footer-section {
